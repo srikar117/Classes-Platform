@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './lib/db.js'
+import passport from './lib/passport.js'
+import authRoutes from './routes/auth.routes.js'
 
 dotenv.config()
 
@@ -9,6 +11,9 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use(passport.initialize())
+
+app.use('/api/auth', authRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'Drawing classes API is running' })
