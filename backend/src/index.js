@@ -7,6 +7,7 @@ import authRoutes from './routes/auth.routes.js'
 import coursesRoutes from './routes/courses.routes.js'
 import paymentsRoutes from './routes/payments.routes.js'
 import bookingsRoutes from './routes/bookings.routes.js'
+import videosRoutes from './routes/videos.routes.js'
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/courses', coursesRoutes)
 app.use('/api/payments', paymentsRoutes)
 app.use('/api/bookings', bookingsRoutes)
+app.use('/api/videos', videosRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'Drawing classes API is running' })
